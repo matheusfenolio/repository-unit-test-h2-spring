@@ -30,6 +30,14 @@ public class IPersonRepositoryTest {
             assertEquals(1, response.size());
             assertEquals("Test", response.get(0).getName());
         }
+
+        @Test
+        void testNativeQueryWithClause(){
+            var response = repository.getAllPersons();
+
+            assertEquals(1, response.size());
+            assertEquals("Test", response.get(0).getName());
+        }
     }
 
     @Nested

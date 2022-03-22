@@ -13,4 +13,11 @@ public interface IPersonRepository extends JpaRepository<Person, Integer> {
             value = "select * from {h-schema}person"
     )
     List<PersonProjection> getAllPersonsInDatabase();
+
+    @Query(
+            nativeQuery = true,
+            value = "WITH persons AS (SELECT * FROM {h-schema}person) " +
+                    "SELECT * FROM persons"
+    )
+    List<PersonProjection> getAllPersons();
 }
